@@ -32,7 +32,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # App title
-st.markdown("<h1 style='color:#1f77b4;'>🔍 Diabetes Prediction App</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='color:#1f77b4;'>Diabetes Prediction App</h1>", unsafe_allow_html=True)
 st.write("Use the sliders to input patient data. The model will predict if the patient is likely to have diabetes.")
 
 # Sidebar input
