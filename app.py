@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 # Page config
-st.set_page_config(page_title="Diabetes Prediction App", page_icon="", layout="centered")
+st.set_page_config(page_title="Diabetes Prediction App", page_icon="🩺", layout="centered")
 
 # Load model
 with open('model.pkl', 'rb') as f:
@@ -17,6 +17,15 @@ st.markdown("""
             background-color: #1f77b4;
             color: white;
             border-radius: 8px;
+        }
+        .prediction-box {
+            background-color: #1f77b4;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 12px;
+            font-size: 22px;
+            margin-top: 20px;
         }
         .title-style {
             font-size: 36px;
@@ -65,20 +74,5 @@ st.dataframe(input_df)
 # Predict
 if st.button("Predict Diabetes"):
     prediction = model.predict(input_df)
-
-    if prediction[0] == 1:
-        result_html = """
-        <div style='background-color:#d9534f; color:white; padding:20px; text-align:center;
-                    border-radius:12px; font-size:22px; margin-top:20px;'>
-            Positive for Diabetes
-        </div>
-        """
-    else:
-        result_html = """
-        <div style='background-color:#5cb85c; color:white; padding:20px; text-align:center;
-                    border-radius:12px; font-size:22px; margin-top:20px;'>
-            Negative for Diabetes
-        </div>
-        """
-    
-    st.markdown(result_html, unsafe_allow_html=True)
+    result = "🟥 Positive for Diabetes" if prediction[0] == 1 else "🟩 Negative for Diabetes"
+    st.markdown(f"<div class='prediction-box'>{result}</div>", unsafe_allow_html=True)
