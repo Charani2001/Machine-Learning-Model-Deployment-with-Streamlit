@@ -3,7 +3,7 @@ import pandas as pd
 import pickle
 
 # Page config
-st.set_page_config(page_title="Diabetes Prediction App", layout="centered")
+st.set_page_config(page_title="Diabetes Prediction App", page_icon="", layout="centered")
 
 # Load model
 with open('model.pkl', 'rb') as f:
